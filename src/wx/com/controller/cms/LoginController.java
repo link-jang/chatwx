@@ -1,4 +1,4 @@
-package wx.com.controller.accept.cms;
+package wx.com.controller.cms;
 
 import java.util.Map;
 

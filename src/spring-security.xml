@@ -33,7 +33,7 @@
 		<property name="authenticationFailureUrl"
 			value="/login.jsp?login_error=1" />
 		<property name="defaultTargetUrl"
-			value="/protected/protected1.jsp" />
+			value="/protected/header.jsp" />
 		<property name="filterProcessesUrl"
 			value="/j_acegi_security_check" />
 	</bean>

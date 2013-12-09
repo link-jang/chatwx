@@ -35,10 +35,7 @@
 <body>
 
 
-<c:if test="${not empty param.login_error}">
-	<font color="red">Invalid username or password, try again !<BR>
-	</font>
-</c:if>
+
 
  <div class="container">
 <form action="<c:url value='j_acegi_security_check'/>" method="POST" class="form-signin">
@@ -50,6 +47,12 @@
     <div style="margin-bottom:10px">
     	<input type="text" class="form-control" style = "max-width:180px;display:inline" placeholder="imagecode" name="j_imagecode" required/>
     	<img  style="display:inline" src='captcha?' onclick="clickImg(this)" />
+	</div>
+	<div>
+		<c:if test="${not empty param.login_error}">
+			<font color="red">Invalid username or password, try again !<BR>
+			</font>
+		</c:if>
 	</div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         

@@ -1,11 +1,16 @@
 package wx.com.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import wx.com.entity.event.Msg_Event;
 
 @Repository
 public class MsgDAO implements IMsgDAO {
+	
+	public static List<String> OpenidList = new ArrayList<String>();
 
 	@Override
 	public boolean save(Object obj) {
@@ -25,7 +30,7 @@ public class MsgDAO implements IMsgDAO {
 	@Override
 	public boolean updateSub(Msg_Event event_sub) {
 		// TODO Auto-generated method stub
-		
+		OpenidList.add(event_sub.getFromUserName());
 		System.out.println("save one subcribe:"+event_sub.getFromUserName());
 		
 		return true;

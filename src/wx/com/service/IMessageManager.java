@@ -8,4 +8,5 @@ public interface IMessageManager {
 	
 	public String msg_Handler(InMessage msg);
 
+
 }

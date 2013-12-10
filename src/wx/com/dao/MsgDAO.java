@@ -3,6 +3,9 @@ package wx.com.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import wx.com.entity.event.Msg_Event;
@@ -11,11 +14,14 @@ import wx.com.entity.event.Msg_Event;
 public class MsgDAO implements IMsgDAO {
 	
 	public static List<String> OpenidList = new ArrayList<String>();
+	
+	@Resource
+	private SessionFactory sessionFacctory;
 
 	@Override
 	public boolean save(Object obj) {
 		// TODO Auto-generated method stub
-		
+	
 		System.out.println("helloDD");
 		return false;
 	}

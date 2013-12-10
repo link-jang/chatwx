@@ -2,11 +2,11 @@
 <%@ page import="org.acegisecurity.ui.webapp.AuthenticationProcessingFilter" %>
 <%@ include file="/protected/taglibs.jsp"%>
 
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="text/html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -41,7 +41,7 @@
 <form action="<c:url value='j_acegi_security_check'/>" method="POST" class="form-signin">
 	<h2 class="form-signin-heading">Please sign in</h2>
 	
-		<input type="text" name='j_username' class="form-control" placeholder="username"  <c:if test="${not empty param.login_error}">value='<%= session.getAttribute(AuthenticationProcessingFilter.ACEGI_SECURITY_LAST_USERNAME_KEY) %>'</c:if>  required autofocus>
+		<input type="text" name='j_username' class="form-control" placeholder="username"  <c:if test="${not empty param.login_error}">value='<%= session.getAttribute(AuthenticationProcessingFilter.ACEGI_SECURITY_LAST_USERNAME_KEY) %>'</c:if>  required >
     <input type="password" name='j_password' class="form-control" placeholder="Password" required>
 
     <div style="margin-bottom:10px">

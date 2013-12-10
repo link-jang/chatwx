@@ -31,7 +31,7 @@
 		<property name="authenticationManager"
 			ref="authenticationManager" />
 		<property name="authenticationFailureUrl"
-			value="/login.jsp?login_error=1" />
+			value="/login?login_error=1" />
 		<property name="defaultTargetUrl"
 			value="/protected/header.jsp" />
 		<property name="filterProcessesUrl"

@@ -22,6 +22,7 @@ import wx.com.entity.cms.auth.AuthRole;
 @Service
 public class AuthUserDetailServiceManager implements UserDetailsService {
 
+	//username
 	@Override
 	public UserDetails loadUserByUsername(String arg0)
 			throws UsernameNotFoundException, DataAccessException {

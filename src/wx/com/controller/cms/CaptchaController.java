@@ -31,7 +31,6 @@ public class CaptchaController {
 	public void  getCaptcha(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
 		cs = new MyCaptchaService();
-		System.out.println("dfd");
 		response.setContentType("image/png");
 	    response.setHeader("cache", "no-cache");
 	    HttpSession session = request.getSession(true);

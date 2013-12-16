@@ -34,7 +34,7 @@
 		<property name="authenticationFailureUrl"
 			value="/login?login_error=1" />
 		<property name="defaultTargetUrl"
-			value="/protected/wx_index" />
+			value="/protected/transit" />
 		<property name="filterProcessesUrl"
 			value="/j_acegi_security_check" />
 	</bean>

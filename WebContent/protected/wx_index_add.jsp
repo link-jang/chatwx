@@ -16,50 +16,51 @@
   </div>
   <div class="col-md-8">
   		 <form role="form">
- 			 <div class="form-group">
+ 			 <div class="form-group" style="max-width:300px">
   			  <label for="keyword">索引关键词</label>
   			  <input type="text" class="form-control" id="keyword" placeholder="keyword" required>
  			 </div>
-  			<div class="form-group">
+  			<div class="form-group" style="max-width:300px">
     			<label for="indextype">索引类型</label>
   			    <select class="form-control">
-  					<option>1</option>
- 					 <option>2</option>
-  					<option>3</option>
-  					<option>4</option>
-  					<option>5</option>
+  					<option value =0>索引类型</option>
+ 					<option value =1>关注索引</option>
+  					<option value =2>默认索引</option>
+  					<option value =3>知识库索引</option>
+  					<option value =4>接口索引</option>
 				</select>
 
   			    
   			</div>
- 			 <div class="form-group">
+ 			 <div class="form-group" style="max-width:300px">
    				 <label for="msgtype">消息类型</label>
    				 <select class="form-control">
-  					<option>1</option>
- 					 <option>2</option>
-  					<option>3</option>
-  					<option>4</option>
-  					<option>5</option>
+  					<option value =0>消息类型</option>
+ 					<option value =1>文本</option>
+  					<option value =2>图片</option>
+  					<option value =3>声音</option>
+  					<option value =4>视频</option>
+  					<option value =5>图文</option>
 				</select>
   			</div>
   			
-  			<div class="form-group">
+  			<div class="form-group" >
    				 <label for="return">回复内容</label>
    				 <div class="row" style="background-color: #E1E1E1;padding:10px 10px 10px 10px">
    				 	<div  class="col-md-2">
-   				 		<span class="btn btn-default glyphicon glyphicon-pencil">&nbsp;文字</span>
+   				 		<span class="btn btn-lg btn-default glyphicon glyphicon-pencil">&nbsp;文字</span>
    				 	</div>
    				 	<div  class="col-md-2">
-   				 		<span class="btn btn-default glyphicon glyphicon-picture">&nbsp;图片</span>
+   				 		<span class="btn btn-lg btn-default glyphicon glyphicon-picture">&nbsp;图片</span>
    				 	</div>
    				 	<div  class="col-md-2">
-   				 		<span class="btn btn-default glyphicon glyphicon-volume-up">&nbsp;语音</span>
+   				 		<span class="btn btn-lg btn-default glyphicon glyphicon-volume-up">&nbsp;语音</span>
    				 	</div>
    				 	<div  class="col-md-2">
-   				 		<span class="btn btn-default glyphicon glyphicon-film">&nbsp;视频</span>
+   				 		<span class="btn btn-lg btn-default glyphicon glyphicon-film">&nbsp;视频</span>
    				 	</div>
    				 	<div  class="col-md-2">
-   				 		<span class="btn btn-default glyphicon glyphicon-list-alt">&nbsp;图文</span>
+   				 		<span class="btn btn-lg btn-default glyphicon glyphicon-list-alt">&nbsp;图文</span>
    				 	</div>
    				 
    				 </div>

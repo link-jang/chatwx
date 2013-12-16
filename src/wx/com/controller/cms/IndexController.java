@@ -25,7 +25,6 @@ public class IndexController {
 	@RequestMapping(value="/wx_index",method = RequestMethod.GET)
 	public ModelAndView  getwx_index(HttpServletRequest httpRequest){
 	
-		System.out.println("dsf");
 		List<Index> indexList = new ArrayList<Index>();
 		
 		indexList.add(indexManager.getIndex("1"));

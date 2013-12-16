@@ -26,14 +26,15 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="authenticationProcessingFilter"
-		class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilter">
+	<bean id="authenticationProcessingFilter" class="wx.auth.filter.ProcessingFilter">
+		<!-- class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilter">-->
+		
 		<property name="authenticationManager"
 			ref="authenticationManager" />
 		<property name="authenticationFailureUrl"
 			value="/login?login_error=1" />
 		<property name="defaultTargetUrl"
-			value="/protected/header.jsp" />
+			value="/protected/wx_index" />
 		<property name="filterProcessesUrl"
 			value="/j_acegi_security_check" />
 	</bean>
@@ -53,7 +54,7 @@
 		<property name="authenticationEntryPoint">
 			<bean
 				class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilterEntryPoint">
-				<property name="loginFormUrl" value="/login.jsp" />
+				<property name="loginFormUrl" value="/login" />
 			</bean>
 		</property>
 		<property name="accessDeniedHandler">
@@ -99,13 +100,17 @@
 	</bean>
 		
 	<bean id="daoAuthenticationProvider"
-		class="org.acegisecurity.providers.dao.DaoAuthenticationProvider">
-		<!-- <property name="userDetailsService" ref="userDetailsService" /> -->
-		<property name="userDetailsService" ref="userDetailsService" />
+	    class="wx.auth.WxDaoAuthenticationProvider">
+		<!-- class="org.acegisecurity.providers.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="userDetailsService" /> -->
+		<property name="userDetailsService" ref="userservice" />
 		<!-- UserCache property will activate the cache, it is not 
 		mandatory but increases performance by cacheing the user 
 		details retrieved from user-base -->
 	
+	</bean>
+	
+	<bean id ="userservice" class="wx.com.service.cms.AuthUserDetailServiceManager"> 
 	</bean>
 		
 	<bean id="userDetailsService" class="org.acegisecurity.userdetails.memory.InMemoryDaoImpl">

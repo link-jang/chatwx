@@ -1,8 +1,9 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ page import="org.acegisecurity.ui.webapp.AuthenticationProcessingFilter" %>
+<%@ page import="wx.auth.filter.ProcessingFilter" %>
+<%@ page import="org.acegisecurity.AuthenticationException"%>
 <%@ include file="/protected/taglibs.jsp"%>
 
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -38,22 +39,54 @@
 
 
  <div class="container">
-<form action="<c:url value='j_acegi_security_check'/>" method="POST" class="form-signin">
+  	<c:if test="${not empty param.login_error}">
+			<c:set var="error">
+				<%=((AuthenticationException) session
+							.getAttribute(ProcessingFilter.ACEGI_SECURITY_LAST_EXCEPTION_KEY))%>
+			</c:set>
+			<c:set var="msg">
+				<%=((AuthenticationException) session
+							.getAttribute(ProcessingFilter.ACEGI_SECURITY_LAST_EXCEPTION_KEY)).getMessage()%>
+			</c:set>
+  	</c:if>
+  <form action="<c:url value='j_acegi_security_check'/>" method="POST" class="form-signin">
 	<h2 class="form-signin-heading">Please sign in</h2>
 	
-		<input type="text" name='j_username' class="form-control" placeholder="username"  <c:if test="${not empty param.login_error}">value='<%= session.getAttribute(AuthenticationProcessingFilter.ACEGI_SECURITY_LAST_USERNAME_KEY) %>'</c:if>  required >
+		<input type="text" name='j_username' class="form-control" placeholder="username"  <c:if test="${not empty param.login_error}">value='<%= session.getAttribute(ProcessingFilter.ACEGI_SECURITY_LAST_USERNAME_KEY) %>'</c:if>  required >
     <input type="password" name='j_password' class="form-control" placeholder="Password" required>
 
     <div style="margin-bottom:10px">
     	<input type="text" class="form-control" style = "max-width:180px;display:inline" placeholder="imagecode" name="j_imagecode" required/>
-    	<img  style="display:inline" src='captcha?' onclick="clickImg(this)" />
+    	<img  style="display:inline" src="captcha?+<%=System.currentTimeMillis()%>" onclick="clickImg(this)" />
 	</div>
 	<div>
-		<c:if test="${not empty param.login_error}">
-			<font color="red">Invalid username or password, try again !<BR>
-			</font>
-		</c:if>
+
+		<c:if test="${fn:indexOf(error,'ImagecodeException') > 0}">
+			
+						<span id="imageCodeError" style="color: red; font-size: 12"> <c:out value="${msg}" />
+						</span>
+			
+	   </c:if>
+	   
+	   <c:if
+					test="${fn:indexOf(error,'UsernameNotFoundException') > 0
+	  							|| fn:indexOf(error,'CredentialsExpiredException') > 0
+	  							|| fn:indexOf(error,'BadCredentialsException') > 0
+	  				}">
+					<span id="imageCodeError" style="color: red; font-size: 12"> <c:out value="用户名或密码错误" />
+					</span>
+				</c:if>
+				<c:if
+					test="${fn:indexOf(error,'LockedException') > 0
+	  							|| fn:indexOf(error,'DisabledException') > 0
+	  							|| fn:indexOf(error,'AccountExpiredException') > 0
+	  				}">
+					<span id="imageCodeError" style="color: red; font-size: 12"> <c:out value="${msg}" />
+					</span>
+				</c:if>				
+	
 	</div>
+	
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         
 

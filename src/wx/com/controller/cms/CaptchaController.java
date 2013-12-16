@@ -38,7 +38,7 @@ public class CaptchaController {
 	    OutputStream os = response.getOutputStream();
 	    String patchca = EncoderHelper.getChallangeAndWriteImage(cs, "png", os);
 	    session.setAttribute("rand_image_code", patchca);
-	    System.out.println(session.getAttribute("rand_image_code"));
+//	    System.out.println(session.getAttribute("rand_image_code"));
 	    os.flush();
 	    os.close();
 	    

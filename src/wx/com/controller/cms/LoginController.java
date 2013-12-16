@@ -21,8 +21,8 @@ private Logger logger = Logger.getLogger(getClass());
 	@RequestMapping(value="login",method = RequestMethod.GET)
 	public String  checkSig(){
 	
-		System.out.println("dsf");
-		return "login";
+//		System.out.println("dsf");
+		return "WEB-INF/login";
 	}
 
 }

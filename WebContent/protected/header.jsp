@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="../static/favicon.png">
-	<title>Insert title here</title>
+	<title>微信管理平台</title>
 	
 	<link href="../css/bootstrap.css" rel="stylesheet">
 
@@ -18,46 +18,48 @@
     <link href="../css/navbar.css" rel="stylesheet">
     
 </head>
-<body>
-	<div class="container">
-	      <!-- Static navbar -->
+<body >
+	<div id="wrap">
+
+      <!-- Fixed navbar -->
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">微信公众平台</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">索引管理</a></li>
-            <li><a href="#">用户管理</a></li>
-            <li><a href="#">知识库管理</a></li>
-            <li><a href="#">素材管理</a></li>
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home">&nbsp;无线天利</span></a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="${ctx}/protected/wx_index"><span class="glyphicon glyphicon-tasks">&nbsp;索引管理</span></a></li>
+              <li><a href="${ctx}/protected/wx_user"><span class="glyphicon glyphicon-user">&nbsp;用户管理</span></a></li>
+              <li><a href="#contact"><span class="glyphicon glyphicon-file">&nbsp;素材管理</span></a></li>
+            </ul>
             
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar-static-top/">欢迎你</a></li>
-            <li><a href="../j_acegi_logout">退出</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="">
+              	<%=request.getSession().getAttribute("_login_user_")%>
+              </a></li>
+              <li><a href="javascript:top.location.href='${ctx}/j_acegi_logout';void(0);">退出</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
       </div>
 
-     
+      <!-- Begin page content -->
+      <div class="container">
+        
+       
 
-    </div> <!-- /container -->
+
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+   
 
-</body>
-</html>
